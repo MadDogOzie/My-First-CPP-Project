@@ -42,5 +42,81 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-	gfx.PutPixel(100, 100, 255, 255, 255);
+	//Define Location of Crosshair
+
+	int x = 400;
+	int y = 300;
+
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		x = x + 100;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		x = x - 100;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		y = y + 100;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		y = y - 100;
+	}
+
+	//Define Colour of Crosshair
+
+	int R = 255;
+	int G = 255;
+	int B = 255;
+
+	if (wnd.kbd.KeyIsPressed(VK_SPACE))
+		{
+			G = G - 255;
+			B = B - 255;
+		}
+
+	//Define Shape of Crosshair
+
+	if (wnd.kbd.KeyIsPressed(VK_SHIFT))
+		{
+			gfx.PutPixel(x - 5, y - 5, R, G, B);
+			gfx.PutPixel(x - 5, y - 4, R, G, B);
+			gfx.PutPixel(x - 5, y - 3, R, G, B);
+			gfx.PutPixel(x - 4, y - 5, R, G, B);
+			gfx.PutPixel(x - 3, y - 5, R, G, B);
+			gfx.PutPixel(x - 5, y + 5, R, G, B);
+			gfx.PutPixel(x - 5, y + 4, R, G, B);
+			gfx.PutPixel(x - 5, y + 3, R, G, B);
+			gfx.PutPixel(x - 4, y + 5, R, G, B);
+			gfx.PutPixel(x - 3, y + 5, R, G, B);
+			gfx.PutPixel(x + 5, y - 5, R, G, B);
+			gfx.PutPixel(x + 5, y - 4, R, G, B);
+			gfx.PutPixel(x + 5, y - 3, R, G, B);
+			gfx.PutPixel(x + 4, y - 5, R, G, B);
+			gfx.PutPixel(x + 3, y - 5, R, G, B);
+			gfx.PutPixel(x + 5, y + 5, R, G, B);
+			gfx.PutPixel(x + 5, y + 4, R, G, B);
+			gfx.PutPixel(x + 5, y + 3, R, G, B);
+			gfx.PutPixel(x + 4, y + 5, R, G, B);
+			gfx.PutPixel(x + 3, y + 5, R, G, B);
+		}
+	else
+		{
+			gfx.PutPixel(x - 5, y, R, G, B);
+			gfx.PutPixel(x - 4, y, R, G, B);
+			gfx.PutPixel(x - 3, y, R, G, B);
+			gfx.PutPixel(x + 3, y, R, G, B);
+			gfx.PutPixel(x + 4, y, R, G, B);
+			gfx.PutPixel(x + 5, y, R, G, B);
+			gfx.PutPixel(x, y - 5, R, G, B);
+			gfx.PutPixel(x, y - 4, R, G, B);
+			gfx.PutPixel(x, y - 3, R, G, B);
+			gfx.PutPixel(x, y + 3, R, G, B);
+			gfx.PutPixel(x, y + 4, R, G, B);
+			gfx.PutPixel(x, y + 5, R, G, B);
+		}
 }
